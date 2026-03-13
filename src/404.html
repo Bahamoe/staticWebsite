@@ -7,7 +7,16 @@
   <body>
     <h1>404</h1>
     <script>
-      // window.location.replace("/");
+      var standalonePages = ["/analytics/"];
+      var isStandalonePage = standalonePages.some(function (page) {
+        return location.pathname.startsWith(page);
+      });
+
+      if (isStandalonePage) {
+        // Do nothing
+      } else {
+        window.location.replace("/");
+      }
     </script>
   </body>
 </html>
